@@ -47,15 +47,7 @@ export default defineConfig({
     'process.env': {},
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          kepler: ['@kepler.gl/components', '@kepler.gl/reducers'],
-          mapbox: ['mapbox-gl'],
-          deckgl: ['deck.gl', '@deck.gl/core'],
-        },
-      },
-    },
+    chunkSizeWarningLimit: 3000,
   },
 });
 
