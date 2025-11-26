@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:snu-laus.github.io)",
+      "WebFetch(domain:laus.snu.ac.kr)",
+      "Bash(curl:*)",
+      "Bash(VITE_BASE_PATH=\"/Seoul-urban-FARprediction-atlas/\" npm run build:*)",
+      "Bash(cat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

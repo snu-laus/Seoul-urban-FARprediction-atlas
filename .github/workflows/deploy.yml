@@ -45,6 +45,14 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: List dist contents
+        run: |
+          echo "Contents of ./app/dist:"
+          ls -la ./app/dist/
+          echo "Contents of ./app/dist/assets:"
+          ls -la ./app/dist/assets/ || echo "No assets folder"
+        working-directory: ${{ github.workspace }}
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -60,3 +68,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Print deployment URL
+        run: |
+          echo "Deployed to: ${{ steps.deployment.outputs.page_url }}"
+          echo "Repository: ${{ github.repository }}"
