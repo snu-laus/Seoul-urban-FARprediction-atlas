@@ -28,14 +28,23 @@ export default defineConfig({
     },
   },
   optimizeDeps: {
-    include: ['@kepler.gl/components', 'mapbox-gl', 'deck.gl', 'assert'],
-    exclude: [
-      '@deck.gl/widgets',
-      '@luma.gl/gltf',
-      '@luma.gl/engine',
-      '@luma.gl/constants',
-      '@luma.gl/shadertools',
+    include: [
+      // Pre-bundle heavy dependencies for faster dev server startup
+      '@kepler.gl/components',
+      '@kepler.gl/reducers',
+      '@kepler.gl/processors',
+      'mapbox-gl',
+      'maplibre-gl',
+      'deck.gl',
+      '@deck.gl/core',
+      '@deck.gl/layers',
+      '@deck.gl/react',
+      '@luma.gl/core',
+      '@luma.gl/webgl',
+      'assert',
     ],
+    // Exclude packages that have issues with pre-bundling
+    exclude: ['@deck.gl/widgets'],
     esbuildOptions: {
       define: {
         global: 'globalThis',
@@ -48,10 +57,10 @@ export default defineConfig({
   },
   build: {
     target: 'esnext',
-    chunkSizeWarningLimit: 5000,
+    chunkSizeWarningLimit: 15000,
     rollupOptions: {
       output: {
-        // Disable code splitting to avoid deck.gl/luma.gl circular dependency issues
+        // Inline everything into a single bundle to completely avoid circular dependency issues
         inlineDynamicImports: true,
       },
     },
