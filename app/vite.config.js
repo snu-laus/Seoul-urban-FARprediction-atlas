@@ -47,6 +47,7 @@ export default defineConfig({
     'process.env': {},
   },
   build: {
+    target: 'esnext',
     chunkSizeWarningLimit: 5000,
     rollupOptions: {
       output: {
