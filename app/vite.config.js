@@ -47,32 +47,11 @@ export default defineConfig({
     'process.env': {},
   },
   build: {
-    chunkSizeWarningLimit: 3000,
+    chunkSizeWarningLimit: 5000,
     rollupOptions: {
       output: {
-        // Keep deck.gl and luma.gl together to avoid circular dependency issues
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            // Group all deck.gl, luma.gl, and kepler.gl together
-            if (
-              id.includes('@deck.gl') ||
-              id.includes('deck.gl') ||
-              id.includes('@luma.gl') ||
-              id.includes('@kepler.gl') ||
-              id.includes('kepler.gl')
-            ) {
-              return 'kepler-deck';
-            }
-            // Keep mapbox separate
-            if (id.includes('mapbox-gl')) {
-              return 'mapbox';
-            }
-            // React ecosystem
-            if (id.includes('react') || id.includes('redux') || id.includes('styled-components')) {
-              return 'react-vendor';
-            }
-          }
-        },
+        // Disable code splitting to avoid deck.gl/luma.gl circular dependency issues
+        inlineDynamicImports: true,
       },
     },
   },
