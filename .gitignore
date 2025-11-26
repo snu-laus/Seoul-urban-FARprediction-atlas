@@ -1,0 +1,15 @@
+# Claude Code session data
+.claude/
+
+# Archive (old/unused files)
+_archive/
+
+# Large source data files
+buildings_merged.geojson
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cloudflare Worker (separate repo recommended)
+cloudflare-worker/

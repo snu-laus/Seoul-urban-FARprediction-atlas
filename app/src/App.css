@@ -1,0 +1,170 @@
+.app {
+  position: absolute;
+  inset: 0;
+}
+
+.control-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: grid;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(8, 15, 28, 0.85);
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.45);
+  color: #f8fafc;
+  z-index: 5;
+  backdrop-filter: blur(6px);
+}
+
+.control-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.control-button {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(59, 130, 246, 0.15);
+  color: #e2e8f0;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.control-button:hover {
+  background: rgba(59, 130, 246, 0.3);
+  border-color: rgba(96, 165, 250, 0.8);
+}
+
+.control-button.secondary {
+  background: rgba(30, 41, 59, 0.4);
+  border-color: rgba(71, 85, 105, 0.6);
+}
+
+.control-button.secondary:hover {
+  background: rgba(30, 64, 175, 0.5);
+  border-color: rgba(96, 165, 250, 0.8);
+}
+
+.control-button.secondary.active {
+  background: rgba(96, 165, 250, 0.7);
+  border-color: rgba(147, 197, 253, 0.9);
+  color: #0f172a;
+}
+
+.control-status {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #cbd5f5;
+}
+
+.status-label {
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.status-detail {
+  color: #94a3b8;
+}
+
+.test-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: rgba(248, 113, 113, 0.2);
+  color: #fecaca;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.map-tooltip {
+  position: absolute;
+  transform: translate(-50%, -120%);
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(11, 15, 26, 0.9);
+  color: #f8fafc;
+  font-size: 0.85rem;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+  z-index: 10;
+  pointer-events: none;
+  min-width: 160px;
+}
+
+.map-tooltip__label {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.map-tooltip__value {
+  margin: 0 0 6px;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.map-tooltip__value:last-child {
+  margin-bottom: 0;
+}
+
+/* Disable pointer events on deck.gl overlay to allow Mapbox layers to receive events */
+.kepler-gl .deckgl-overlay,
+.kepler-gl .deck-canvas,
+.kepler-gl .deck-container,
+.kepler-gl [class*="deckgl"],
+.kepler-gl canvas:not(.mapboxgl-canvas) {
+  pointer-events: none !important;
+}
+
+/* Keep Mapbox canvas interactive */
+.kepler-gl .mapboxgl-canvas-container,
+.kepler-gl .mapboxgl-canvas {
+  pointer-events: auto !important;
+}
+
+/* Hide default kepler.gl attribution */
+.kepler-gl .mapboxgl-ctrl-attrib,
+.kepler-gl .mapboxgl-ctrl-logo,
+.kepler-gl [class*="attribution"],
+.kepler-gl [class*="Attribution"] {
+  display: none !important;
+}
+
+/* Custom attribution */
+.custom-attribution {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  padding: 4px 10px;
+  background: rgba(8, 15, 28, 0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.custom-attribution a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+.custom-attribution a:hover {
+  text-decoration: underline;
+}

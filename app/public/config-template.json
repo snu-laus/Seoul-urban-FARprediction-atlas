@@ -1,0 +1,150 @@
+{
+  "configVersion": "v1",
+  "info": {
+    "app": "kepler.gl",
+    "description": "FAR extrusion template for Buildings dataset"
+  },
+  "config": {
+    "visState": {
+      "filters": [],
+      "layers": [
+        {
+          "id": "template-far-layer",
+          "type": "geojson",
+          "config": {
+            "dataId": "buildings",
+            "label": "FAR Template",
+            "color": [68, 1, 84],
+            "columns": {
+              "geojson": "_geojson"
+            },
+            "isVisible": true,
+            "visConfig": {
+              "opacity": 0.85,
+              "strokeOpacity": 0.2,
+              "thickness": 0.5,
+              "strokeColor": null,
+              "colorRange": {
+                "name": "Custom Viridis",
+                "type": "custom",
+                "category": "Custom",
+                "colors": [
+                  "#440154",
+                  "#482475",
+                  "#414287",
+                  "#355e8d",
+                  "#2a768e",
+                  "#218e8d",
+                  "#21a585",
+                  "#3dbc74",
+                  "#70cf57",
+                  "#b0dd2f"
+                ]
+              },
+              "sizeRange": [0, 10],
+              "radius": 10,
+              "elevationScale": 30,
+              "enable3d": false,
+              "coverage": 1,
+              "wireframe": false,
+              "stroke": false,
+              "filled": true,
+              "lineWidth": 1,
+              "highlightColor": [255, 255, 255],
+              "pointRadius": 10,
+              "elevationRange": [0, 500]
+            },
+            "textLabel": [
+              {
+                "field": {
+                  "name": "pnu",
+                  "type": "string"
+                },
+                "color": [255, 255, 255],
+                "size": 12,
+                "offset": [0, 0],
+                "anchor": "start",
+                "alignment": "left"
+              }
+            ]
+          },
+          "visualChannels": {
+            "colorField": {
+              "name": "FAR_prediction",
+              "type": "real"
+            },
+            "colorScale": "quantile",
+            "strokeColorField": null,
+            "strokeColorScale": "quantile",
+            "sizeField": null,
+            "sizeScale": "linear",
+            "elevationField": {
+              "name": "FAR_prediction",
+              "type": "real"
+            },
+            "elevationScale": "linear"
+          }
+        }
+      ],
+      "interactionConfig": {
+        "tooltip": {
+          "fieldsToShow": {
+            "buildings": [
+              {"name": "pnu", "format": null},
+              {"name": "FAR_prediction", "format": ".2f"}
+            ]
+          },
+          "enabled": true
+        },
+        "brush": {
+          "size": 0.5,
+          "enabled": false
+        },
+        "coordinate": {
+          "enabled": false
+        },
+        "geocoder": {
+          "enabled": false
+        },
+        "animationControl": {
+          "enabled": false
+        }
+      },
+      "layerBlending": "additive",
+      "splitMaps": [],
+      "animationConfig": {
+        "currentTime": null,
+        "speed": 1
+      }
+    },
+    "mapState": {
+      "bearing": 0,
+      "dragRotate": true,
+      "latitude": 37.5665,
+      "longitude": 126.978,
+      "zoom": 13,
+      "pitch": 45,
+      "isSplit": false
+    },
+    "mapStyle": {
+      "styleType": "seoul-pmtiles",
+      "visibleLayerGroups": {
+        "label": true,
+        "road": true,
+        "building": true,
+        "water": true,
+        "land": true
+      },
+      "threeDBuildingColor": [9.665738, 17.18354, 31.144286, 1],
+      "mapStyles": {}
+    }
+  },
+  "datasets": [
+    {
+      "info": {
+        "label": "Buildings",
+        "id": "buildings"
+      }
+    }
+  ]
+}
