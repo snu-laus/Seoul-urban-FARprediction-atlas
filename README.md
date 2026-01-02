@@ -1,16 +1,13 @@
-# 지도 프로젝트 README (kepler.gl + GitHub Pages)
-
-이 문서는 `buildings_merged.geojson`을 kepler.gl API로 
 
 
-## 개요
+## Seoul Urban Atlas
+This is a React and Kepler.gl-based tool designed for real-time exploration of Floor Area Ratio (FAR) predictions in Seoul. To optimize performance with large-scale urban data, it avoids loading massive GeoJSON datasets directly; instead, it utilizes PMTiles for vector tiling to efficiently stream and render only the features within the current viewport.
 
-- 
+### Demo
+Try this in [here](https://seoul-urban-farprediction-atlas.pages.dev/).
 
-```markdown
-# Seoul Urban Atlas
-
-React + kepler.gl 기반으로 서울시 FAR(용적률) 예측 결과를 실시간으로 탐색하는 툴입니다. 대용량 GeoJSON을 직접 로드하지 않고, PMTiles로 타일링한 후 뷰포트에 맞춰 필요한 피처만 스트리밍합니다.
+### Related Research
+This project is developed based on my academic research. You can view the related paper here: [KCI Article](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003276587)
 
 
 ```
