@@ -8,7 +8,3 @@ Try this in [here](https://seoul-urban-farprediction-atlas.pages.dev/).
 
 ### Related Research
 This project is developed based on my academic research. You can view the related paper here: [KCI Article](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003276587)
-
-
-```
-
